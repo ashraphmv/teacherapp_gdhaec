@@ -12,7 +12,7 @@ window.TC_CONFIG = {
      (looks like 1234567890-abc123.apps.googleusercontent.com).
      While this is empty the app runs in SETUP MODE: it shows a
      "Continue (setup mode)" button instead of Google sign-in. */
-  googleClientId: "",
+  googleClientId: "497095698879-fk6hd0t3hh26kr78pu3ikbpvi8b411j6.apps.googleusercontent.com",
 
   /* Only accounts from this domain can get past the sign-in screen. */
   schoolDomain: "gdhaec.edu.mv",

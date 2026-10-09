@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Teacher Connect</title>
+<meta name="description" content="Teacher Connect — staff portal for GDh. Atoll Education Centre">
+<meta name="theme-color" content="#0B3F66">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Teacher Connect">
+<!-- iPhone splash screens -->
+<link rel="apple-touch-startup-image" media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3)" href="splash/splash-1290x2796.png">
+<link rel="apple-touch-startup-image" media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3)" href="splash/splash-1179x2556.png">
+<link rel="apple-touch-startup-image" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3)" href="splash/splash-1284x2778.png">
+<link rel="apple-touch-startup-image" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3)" href="splash/splash-1170x2532.png">
+<link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)" href="splash/splash-1125x2436.png">
+<link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)" href="splash/splash-828x1792.png">
+<link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" href="splash/splash-750x1334.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div class="app">
+
+  <!-- SIGN-IN -->
+  <section class="view signin" id="v-signin" hidden>
+    <svg class="hex hex-a" aria-hidden="true"><use href="#hexes"/></svg>
+    <svg class="hex hex-b" aria-hidden="true"><use href="#hexes"/></svg>
+    <img class="signin-logo" src="icons/logo.png" alt="GDh. Atoll Education Centre logo" width="120" height="120">
+    <h1 class="wm wm-dark"><span class="wm-a">Teacher</span><span class="wm-b">Connect</span></h1>
+    <p class="signin-sub">Everything you need for your classes and your team in one place.</p>
+    <div id="gsi-btn" class="gsi-slot"></div>
+    <button type="button" class="setup-btn" id="setup-btn" hidden>Continue (setup mode)</button>
+    <p class="signin-note" id="signin-note">Use your <b>@gdhaec.edu.mv</b> school account.</p>
+    <p class="err" id="signin-err" role="alert" hidden></p>
+    <p class="setup-note" id="setup-note" hidden>Setup mode: Google sign-in is not configured yet. Add your Client ID in <code>config.js</code>.</p>
+  </section>
+
+  <!-- HOME -->
+  <section class="view home" id="v-home" hidden>
+    <header class="head">
+      <svg class="hex hex-head" aria-hidden="true"><use href="#hexes"/></svg>
+      <div class="hbar">
+        <div class="logo-tile"><img src="icons/logo-white.png" alt="" width="30" height="30"></div>
+        <div class="wm wm-head"><span class="wm-a">Teacher</span><span class="wm-b">Connect</span><small>Staff portal</small></div>
+        <button type="button" class="avatar-btn" data-go="profile" aria-label="Your profile"><span class="avatar" id="head-avatar"></span></button>
+      </div>
+      <div class="greet" id="greet">Hello</div>
+      <div class="meta"><span id="m-date"></span><span id="m-time"></span><span class="day" id="m-day"></span></div>
+    </header>
+
+    <button type="button" class="feat" id="feat">
+      <span class="ic c-sky" aria-hidden="true" id="feat-ic"></span>
+      <span class="tx"><b id="feat-title"></b><span class="s" id="feat-sub"></span></span>
+      <span class="cta" id="feat-cta"></span>
+    </button>
+
+    <div class="install" id="install" hidden>
+      <span id="install-text">Install Teacher Connect on this phone for one-tap access.</span>
+      <button type="button" id="install-btn">Install</button>
+      <button type="button" class="x" id="install-x" aria-label="Dismiss">×</button>
+    </div>
+
+    <div class="sec"><h2>Modules</h2><div class="grid" id="grid"></div></div>
+    <div class="sec sec-tight"><h2>Quick actions</h2></div>
+    <div class="quick" id="quick"></div>
+    <div class="spacer"></div>
+    <p class="motto"><span>Strive to Surpass</span></p>
+  </section>
+
+  <!-- PROFILE -->
+  <section class="view profile" id="v-profile" hidden>
+    <header class="head head-small">
+      <svg class="hex hex-head" aria-hidden="true"><use href="#hexes"/></svg>
+      <div class="hbar">
+        <div class="logo-tile"><img src="icons/logo-white.png" alt="" width="30" height="30"></div>
+        <div class="wm wm-head"><span class="wm-a">Your</span><span class="wm-b">Profile</span><small>Staff portal</small></div>
+      </div>
+    </header>
+    <div class="card">
+      <div class="who"><span class="avatar big" id="p-avatar"></span><div><b id="p-name"></b><span id="p-email"></span></div></div>
+      <div class="row"><span>Account</span><span>School Google account</span></div>
+      <div class="row"><span>Portal website</span><a id="p-portal" href="#" rel="noopener"></a></div>
+      <div class="row"><span>App version</span><span id="p-version"></span></div>
+    </div>
+    <div class="card">
+      <div class="row"><span>Trouble opening a module?</span><span>Use only your school account in Chrome or Safari</span></div>
+      <div class="row"><span>Support</span><span id="p-support"></span></div>
+    </div>
+    <button type="button" class="signout" id="signout">Sign out</button>
+    <div class="spacer"></div>
+  </section>
+
+  <nav class="nav" id="nav" aria-label="App" hidden>
+    <button type="button" data-go="home"><span class="pb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></span>Home</button>
+    <button type="button" id="nav-web"><span class="pb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span>Website</button>
+    <button type="button" data-go="profile"><span class="pb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span>Profile</button>
+  </nav>
+
+  <div class="scrim" id="scrim" hidden></div>
+  <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sh-name" hidden>
+    <div class="grab" aria-hidden="true"></div>
+    <div class="sh-top"><span class="ic" id="sh-ic" aria-hidden="true"></span><div><b id="sh-name"></b><small id="sh-aud"></small></div></div>
+    <p id="sh-desc"></p>
+    <div class="soonbox" id="sh-soon" hidden>Coming soon. This module is being prepared and will appear here when it is ready.</div>
+    <h3 id="sh-h3">Go straight to <span id="sh-note"></span></h3>
+    <div class="links" id="sh-links"></div>
+    <button type="button" class="primary" id="sh-open">Open</button>
+  </div>
+  <div class="toast" id="toast" role="status" hidden></div>
+</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="hexes" viewBox="0 0 170 150"><g fill="none" stroke="#7FD3F7" stroke-width="1.5">
+      <path d="M60 5 90 22v34L60 73 30 56V22z"/><path d="M120 39 150 56v34l-30 17-30-17V56z"/><path d="M60 77 90 94v34l-30 17-30-17V94z"/></g>
+      <path d="M120 39 150 56v34l-30 17-30-17V56z" fill="#7FD3F7" opacity=".35"/></symbol>
+  </defs>
+</svg>
+
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

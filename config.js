@@ -40,13 +40,15 @@ window.TC_CONFIG = {
              url ONLY if the module can open that screen directly
              (for example …/exec?page=register). Links without a url
              open the module's main page.
+     deepLink = "page" makes quick links open …/exec?page=<link id>,
+             so the module can jump straight to that screen.
      soon  = true shows "Coming soon" and blocks opening.
      colour: sky | red | green | navy | amber
      icon:   calendar | heart | eye | file | sparkle
      --------------------------------------------------------------- */
   modules: [
     {
-      id: "attendance", name: "Student Attendance", colour: "sky", icon: "calendar",
+      id: "attendance", deepLink: "page", name: "Student Attendance", colour: "sky", icon: "calendar",
       audience: "All teachers",
       description: "Mark the daily register at Period 0, record lesson attendance, cover lessons as a substitute and follow up on absences.",
       url: "https://script.google.com/a/macros/gdhaec.edu.mv/s/AKfycbwS9ZCasHZtBtp05vvtvZNsu7cNS9r2rJCH25QXwIaYdw7F1tGARC5RUFB5OKbhYB0i/exec",
@@ -70,7 +72,7 @@ window.TC_CONFIG = {
       ]
     },
     {
-      id: "me", name: "Monitoring and Evaluation", short: "Monitoring & Evaluation", colour: "green", icon: "eye",
+      id: "me", deepLink: "page", name: "Monitoring and Evaluation", short: "Monitoring & Evaluation", colour: "green", icon: "eye",
       audience: "Teachers · HoDs · LTs · Principal",
       description: "Lesson observations, notebook reviews, weekly reports, student voice, end-of-term reflection and term reports. Each person sees the screens for their role.",
       note: "links depend on your role",
@@ -92,7 +94,7 @@ window.TC_CONFIG = {
       links: []
     },
     {
-      id: "shine", name: "Shine", colour: "amber", icon: "sparkle",
+      id: "shine", deepLink: "page", name: "Shine", colour: "amber", icon: "sparkle",
       audience: "All staff",
       description: "Earn Sparks for every All-In Week (no missed day) and Clockwork Week (on time every day). Collect badges for months, terms and streaks. No rankings: you compete with yourself.",
       url: "https://script.google.com/a/macros/gdhaec.edu.mv/s/AKfycbxGkfOGTnxoCMZD7kJt1U3DZBt7y7KqRjwyNKi2D48hjzGrQQnm4CZS-09-wYuJd6yz/exec",

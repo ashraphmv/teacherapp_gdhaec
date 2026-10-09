@@ -1,7 +1,7 @@
 /* Teacher Connect launcher. Settings live in config.js. */
 (function () {
   "use strict";
-  var APP_VERSION = "1.0.0";
+  var APP_VERSION = "1.0.2";
   var cfg = window.TC_CONFIG || {};
   var domain = String(cfg.schoolDomain || "").toLowerCase();
   var KEY = "tc.session", KEY_INSTALL = "tc.installDismissed";
@@ -208,7 +208,9 @@
     if (!m) return;
     if (m.soon) { toast(m.name + " is coming soon."); return; }
     var l = linkId ? (m.links || []).filter(function (x) { return x.id === linkId; })[0] : null;
-    var url = (l && l.url) || m.url;
+    var url = m.url;
+    if (l && l.url) url = l.url;
+    else if (l && m.deepLink && url && !/^PASTE_/.test(url)) url += (url.indexOf("?") < 0 ? "?" : "&") + m.deepLink + "=" + encodeURIComponent(l.id);
     if (!url || /^PASTE_/.test(url)) { toast("The link for " + m.name + " hasn't been set up yet."); return; }
     closeSheet();
     goTo(url);

@@ -1,6 +1,6 @@
 /* Teacher Connect service worker.
    Change APP_VERSION whenever you upload changed files, so phones refresh. */
-var APP_VERSION = "1.0.0";
+var APP_VERSION = "1.0.1";
 var CACHE = "tc-" + APP_VERSION;
 var SHELL = [
   "./", "index.html", "app.css", "app.js", "config.js", "manifest.webmanifest",
